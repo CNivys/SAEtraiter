@@ -1,11 +1,12 @@
-import random
+import numpy.random
 import pickle
 import matplotlib.pyplot as plt
 
 nb = int(input("Veuillez choisir le nombre de tirage : "))
 n = int(input("Veuillez choisir une graine : "))
-random.seed(n)
+numpy.random.seed(n)
 tab = []
+tabVer=[]
 
 #tirage
 for i in range(nb):
@@ -13,8 +14,13 @@ for i in range(nb):
     #print("\n")
     f = open("tirage n°{}".format(i+1), "wb")
     for i in range(5):
-        t = int(round(random.uniform(1, 45)))
-        pickle.dump(t, f)
+        t = int(round(numpy.random.uniform(1, 46)))
+        tabVer.append(t)
+        if t not in tabVer:
+            pickle.dump(t, f)
+        else:
+            t = int(round(numpy.random.uniform(1, 46)))
+            pickle.dump(t, f)
         #print(t, end =" ")
 
 #lecture des fichiers avec les tirages
