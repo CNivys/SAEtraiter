@@ -14,12 +14,12 @@ for i in range(nb):
     #print("\n")
     f = open("tirage n°{}".format(i+1), "wb")
     for i in range(5):
-        t = int(round(numpy.random.uniform(1, 46)))
+        t = int(round(numpy.random.uniform(1, 45)))
         tabVer.append(t)
         if t not in tabVer:
             pickle.dump(t, f)
         else:
-            t = int(round(numpy.random.uniform(1, 46)))
+            t = int(round(numpy.random.uniform(1, 45)))
             pickle.dump(t, f)
         #print(t, end =" ")
 
@@ -38,9 +38,9 @@ print(tab)
 
 #histogramme:
 
-plt.hist(tab, bins=45 ,rwidth=0.8)  # Création de l'histogramme
+plt.hist(tab, bins=45, rwidth=0.8)  # Création de l'histogramme
 plt.xlabel('Valeurs')
-plt.xticks(range(0,45))
+plt.xticks(range(0,46))
 plt.ylabel('Nombres')
-plt.title("Exemple d'histogramme simple")
+plt.title("Histogrammes des tirages")
 plt.show()
